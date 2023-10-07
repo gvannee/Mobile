@@ -10,10 +10,19 @@ import hanu.a2_2001040222.recyleview.model.Food
 
 
 class FoodAdapter(private val list: List<Food>) : RecyclerView.Adapter<FoodAdapter.FoodViewHolder>() {
-    class FoodViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+
+    var onItemClick : (Food) -> Unit = {
+
+    }
+    inner class FoodViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val tvPrice = view.findViewById<TextView>(R.id.tvPrice)
         private val tvName = view.findViewById<TextView>(R.id.tvPho)
 
+        init {
+            view.rootView.setOnClickListener {
+                onItemClick.invoke(list[layoutPosition])
+            }
+        }
         fun onBind(food: Food) {
             tvPrice.text = food.price.toString()
             tvName.text = food.name
