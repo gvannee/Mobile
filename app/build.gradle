@@ -8,6 +8,7 @@ android {
     namespace 'hanu.a2_2001040222.recyleview'
     compileSdk 33
 
+
     defaultConfig {
         applicationId "hanu.a2_2001040222.recyleview"
         minSdk 30
@@ -30,6 +31,9 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+    viewBinding {
+        enabled = true
     }
 }
 
